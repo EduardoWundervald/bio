@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Procedures Catalog</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const navLinks = document.querySelectorAll('nav a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            // Remove 'active' de todos os links
+            navLinks.forEach(l => l.classList.remove('active'));
+            // Adiciona 'active' ao link clicado
+            this.classList.add('active');
+        });
+    });
+});
+</script>
+<body>
+    <header>
+        <h1>Blue Sky Procedures</h1>
+        <p>Explore our available procedures and schedule your appointment!</p>
+    </header>
+    <nav>
+        <a href="#" class="active">Home</a>
+        <a href="#catalog">Procedures</a>
+        <a href="#contact">Contact</a>
+        <a href="#">Search</a>
+    </nav>
+    <main>
+        <section id="catalog">
+            <h2 style="text-align:center; font-weight:400; letter-spacing:1px;">Latest Procedures...</h2>
+            <div id="procedures-list">
+                <!-- Exemplo de cards, substitua pelos seus dados reais -->
+                <div class="procedure">
+                    <img src="img/procedure1.jpg" alt="Procedure 1">
+                    <h2>Facial Rejuvenation</h2>
+                    <p>Restore your skin's natural glow with our advanced facial treatments.</p>
+                </div>
+                <div class="procedure">
+                    <img src="img/procedure2.jpg" alt="Procedure 2">
+                    <h2>Body Sculpting</h2>
+                    <p>Non-invasive body contouring for a more defined silhouette.</p>
+                </div>
+            </div>
+        </section>
+        <section id="contact">
+            <h2>Welcome! 👋</h2>
+            <p>I'm Catherine - the procedure developer and specialist behind Blue Sky Procedures. Here you'll find plenty of options for your well-being. I hope you enjoy exploring!</p>
+            <hr>
+            <ul style="justify-content: center; display: flex; gap: 16px; padding: 0; margin: 10px 0 0 0;">
+                <li>
+                    <a href="https://wa.me/yourwhatsappnumber" target="_blank">
+                        <img src="img/whatsapp.png" alt="WhatsApp" style="width:22px; height:22px; vertical-align:middle; margin-right:6px;">
+                        WhatsApp
+                    </a>
+                </li>
+                <li>
+                    <a href="https://instagram.com/yourinstagramhandle" target="_blank">
+                        <img src="img/instagram.png" alt="Instagram" style="width:22px; height:22px; vertical-align:middle; margin-right:6px;">
+                        Instagram
+                    </a>
+                </li>
+            </ul>
+            <hr>
+            <div style="margin-top:20px;">
+                <strong>Want every new procedure sent straight to your inbox?</strong>
+                <form>
+                    <input type="email" placeholder="Enter your email here..." style="width:100%;padding:8px;margin:10px 0;border-radius:5px;border:1px solid #eee;">
+                    <button type="submit" style="width:100%;padding:10px;background:#222;color:#fff;border:none;border-radius:5px;">SUBSCRIBE</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Blue Sky Procedures. All rights reserved.</p>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>

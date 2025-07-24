@@ -1,0 +1,151 @@
+/* --- NOVO ESTILO INSPIRADO NA REFERÊNCIA --- */
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #faf9f6;
+    color: #222;
+}
+
+header {
+    background: none;
+    color: #222;
+    padding: 40px 0 10px 0;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: 20px 0;
+}
+
+nav a {
+    color: #222;
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 1px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background 0.2s;
+    font-size: 1.1rem;
+}
+
+nav a.active,
+nav a:hover {
+    background: #eaeaea;
+}
+
+nav a:hover {
+    background: #eaeaea;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+#catalog {
+    flex: 2;
+}
+
+#procedures-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+}
+
+.procedure {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    padding: 24px;
+    text-align: center;
+    border: none;
+}
+
+.procedure img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    object-fit: cover;
+    max-height: 200px;
+}
+
+.procedure h2 {
+    margin: 0 0 8px 0;
+    color: #222;
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+.procedure p {
+    margin: 5px 0 0 0;
+    color: #555;
+}
+
+#contact {
+    flex: 1;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    padding: 24px;
+    margin-top: 0;
+    height: fit-content;
+    text-align: left;
+}
+
+#contact h2 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+#contact ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0 0;
+    display: flex;
+    gap: 16px;
+}
+
+#contact li a {
+    color: #222;
+    background: #eaeaea;
+    padding: 8px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+#contact li a:hover {
+    background: #d1d1d1;
+}
+
+footer {
+    text-align: center;
+    padding: 30px 0 10px 0;
+    color: #aaa;
+    font-size: 0.9em;
+    border-top: 1px solid #eee;
+    margin-top: 40px;
+}
+
+/* --- FIM DAS ALTERAÇÕES --- */
