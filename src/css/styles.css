@@ -148,4 +148,60 @@ footer {
     margin-top: 40px;
 }
 
+@media (max-width: 900px) {
+    main {
+        flex-direction: column;
+        gap: 0;
+        max-width: 100%;
+        padding: 0 10px;
+    }
+    #catalog, #contact {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto 24px auto;
+    }
+    #procedures-list {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    #contact > div {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    #contact img {
+        margin-bottom: 12px;
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        padding: 24px 0 8px 0;
+    }
+    h1 {
+        font-size: 1.5rem;
+    }
+    nav {
+        flex-direction: column;
+        gap: 10px;
+        margin: 10px 0;
+    }
+    #procedures-list {
+        grid-template-columns: 1fr;
+    }
+    .procedure {
+        padding: 14px;
+    }
+    #contact {
+        padding: 14px;
+    }
+    #contact ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+    #contact img {
+        width: 70px !important;
+        height: 70px !important;
+    }
+}
 /* --- FIM DAS ALTERAÇÕES --- */
