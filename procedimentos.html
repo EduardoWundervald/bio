@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Procedimentos Estéticos</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+</head>
+<body class="procedimentos-page">
+    <header>
+        <div class="logo-area">
+            <img src="https://raichu-uploads.s3.amazonaws.com/logo_concelho-regional-de-biomedicina-1-regiao_yjYcYz.png" alt="Logo Exemplo" class="logo-img">
+        </div>
+        <nav class="main-nav">
+            <button class="menu-toggle" aria-label="Abrir menu">&#9776;</button>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="procedimentos.html" class="active">Procedimentos</a></li>
+                <li><a href="feedbacks.html">Feedbacks</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+            </ul>
+            <form class="search-bar">
+                <input type="text" placeholder="Buscar">
+                <button type="submit"><span class="search-icon">🔍</span></button>
+            </form>
+        </nav>
+    </header>
+    <main class="main-content">
+        <section class="left-content">
+            <h2 class="section-title">PROCEDIMENTOS</h2>
+            <div class="cards-container">
+                <div class="procedimento-card">
+                    <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=400&q=80" alt="Preenchimento Labial">
+                    <div class="card-desc">Preenchimento Labial: Realce o volume e o contorno dos lábios de forma natural.</div>
+                    <span class="card-title">Preenchimento Labial</span>
+                </div>
+                <div class="procedimento-card">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Botox">
+                    <div class="card-desc">Botox: Suavize rugas e linhas de expressão para um rosto mais jovem.</div>
+                    <span class="card-title">Botox</span>
+                </div>
+                <div class="procedimento-card">
+                    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80" alt="Skinbooster">
+                    <div class="card-desc">Skinbooster: Hidratação profunda para uma pele mais viçosa e iluminada.</div>
+                    <span class="card-title">Skinbooster</span>
+                </div>
+                <div class="procedimento-card">
+                    <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80" alt="Bioestimulador de Colágeno">
+                    <div class="card-desc">Bioestimulador de Colágeno: Estimule a produção de colágeno e melhore a firmeza da pele.</div>
+                    <span class="card-title">Bioestimulador de Colágeno</span>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div class="contact-icons" style="display:flex;justify-content:center;gap:40px;margin-top:40px;margin-bottom:0;">
+        <a href="https://wa.me/5547996288337" target="_blank" class="whatsapp-contact" aria-label="WhatsApp" style="display:flex;flex-direction:column;align-items:center;text-decoration:none;color:#222;font-size:1.1rem;gap:6px;">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp" style="width:38px;height:38px;vertical-align:middle;">
+            <span style="font-size:1rem;">(47)9 9628-8337</span>
+        </a>
+        <a href="https://instagram.com/biokamylamartins" target="_blank" class="instagram-contact" aria-label="Instagram" style="display:flex;flex-direction:column;align-items:center;text-decoration:none;color:#222;font-size:1.1rem;gap:6px;">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" style="width:38px;height:38px;vertical-align:middle;">
+            <span style="font-size:1rem;">@biokamylamartins</span>
+        </a>
+    </div>
+    <footer>
+        <p>&copy; 2025 Dra. Estética. Todos os direitos reservados.</p>
+    </footer>
+    <script>
+    // Menu hamburguer responsivo
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuBtn = document.querySelector('.menu-toggle');
+        const navList = document.querySelector('.main-nav ul');
+        menuBtn.addEventListener('click', function() {
+            navList.classList.toggle('open');
+        });
+        // Fecha o menu ao clicar em um link
+        navList.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => navList.classList.remove('open'));
+        });
+    });
+    // Busca funcional para cards de procedimentos
+    document.addEventListener('DOMContentLoaded', function() {
+        const searchInput = document.querySelector('.search-bar input');
+        const cards = document.querySelectorAll('.procedimento-card');
+        searchInput.addEventListener('input', function() {
+            const value = this.value.trim().toLowerCase();
+            cards.forEach(card => {
+                const title = card.querySelector('.card-title').textContent.toLowerCase();
+                const desc = card.querySelector('.card-desc').textContent.toLowerCase();
+                if (title.includes(value) || desc.includes(value)) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+    // Animação de transição de página (fade-in e fade-out)
+    document.addEventListener('DOMContentLoaded', function() {
+        document.body.classList.add('page-loaded');
+        // Fade-out ao clicar em links de navegação
+        document.querySelectorAll('a[href]').forEach(link => {
+            // Só intercepta links internos
+            if (link.hostname === window.location.hostname && !link.hasAttribute('target')) {
+                link.addEventListener('click', function(e) {
+                    // Evita recarregar a mesma página
+                    if (link.href === window.location.href) return;
+                    e.preventDefault();
+                    document.body.classList.remove('page-loaded');
+                    setTimeout(() => {
+                        window.location.href = link.href;
+                    }, 500); // tempo igual ao transition do CSS
+                });
+            }
+        });
+    });
+    </script>
+</body>
+</html>
