@@ -23,10 +23,6 @@
                 <li><a href="feedbacks.html">Feedbacks</a></li>
                 <li><a href="sobre.html">Sobre</a></li>
             </ul>
-            <form class="search-bar">
-                <input type="text" placeholder="Buscar">
-                <button type="submit"><span class="search-icon">🔍</span></button>
-            </form>
         </nav>
     </header>
     <main class="main-content">
@@ -87,23 +83,6 @@
         // Fecha o menu ao clicar em um link
         navList.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => navList.classList.remove('open'));
-        });
-    });
-    // Busca funcional para cards de procedimentos
-    document.addEventListener('DOMContentLoaded', function() {
-        const searchInput = document.querySelector('.search-bar input');
-        const cards = document.querySelectorAll('.procedimento-card');
-        searchInput.addEventListener('input', function() {
-            const value = this.value.trim().toLowerCase();
-            cards.forEach(card => {
-                const title = card.querySelector('.card-title').textContent.toLowerCase();
-                const desc = card.querySelector('.card-desc').textContent.toLowerCase();
-                if (title.includes(value) || desc.includes(value)) {
-                    card.style.display = '';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
         });
     });
     // Animação de transição de página (fade-in e fade-out)
