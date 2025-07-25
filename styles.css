@@ -588,3 +588,14 @@ footer {
     display: inline-block;
     vertical-align: middle;
 }
+@media (min-width: 701px) {
+  body.index-home .main-content {
+    gap: 120px !important;
+  }
+  body.index-home .left-content {
+    margin-left: -56px;
+  }
+  body.index-home .sidebar {
+    margin-right: -56px;
+  }
+}
