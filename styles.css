@@ -182,7 +182,7 @@ body.procedimentos-page .section-title {
     height: 100%; /* cobre todo o card, inclusive o título */
     background: rgba(217,207,208,0.96); /* alterado para #d9cfd0 */
     color: #fff;
-    font-size: 1.05rem;
+    font-size: 1.20rem;
     font-weight: 500;
     opacity: 0;
     display: flex;
