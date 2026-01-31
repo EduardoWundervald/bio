@@ -655,3 +655,132 @@ footer {
     max-width: 380px;
   }
 }
+/* 1. Base do Antes e Depois (O que eu mandei primeiro) */
+.comparacao-fotos {
+    display: flex;
+    width: 100%;
+    height: 220px;
+}
+
+.comparacao-fotos img {
+    width: 50% !important; 
+    border-radius: 0 !important;
+    object-fit: cover;
+}
+
+.foto-antes {
+    border-right: 2px solid #fff;
+}
+
+/* 2. Ajuste para Celular (O que eu mandei agora por último) */
+@media (max-width: 480px) {
+    .comparacao-fotos {
+        flex-direction: column; 
+        height: auto; 
+    }
+
+    .comparacao-fotos img {
+        width: 100% !important; 
+        height: 200px; 
+        border-right: none;
+        border-bottom: 2px solid #fff; 
+    }
+}
+/* Justificar o texto da página Sobre */
+.sobre-content p {
+    text-align: justify;
+    line-height: 1.6; /* Isso melhora a leitura, dando mais espaço entre as linhas */
+}
+
+/* --- ESTILOS DO MODAL (EXPANDIR FOTO) --- */
+.modal-overlay {
+    display: none; /* Escondido por padrão */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* --- AJUSTE FINAL DO MODAL --- */
+.modal-content {
+    max-width: 1100px !important;
+    width: 90% !important;
+    /* Aqui definimos a altura da 'caixa branca' */
+    height: auto !important; 
+    max-height: 90vh !important; 
+    background: #fff;
+    padding: 15px;
+    border-radius: 18px;
+    position: relative;
+    display: flex;
+    flex-direction: column; /* Alinha fotos em cima e título embaixo */
+}
+
+/* Isso força as fotos a ocuparem mais espaço vertical no modal */
+.modal-content .comparacao-fotos {
+    height: 60vh !important; /* Aumente este valor (ex: 70vh) para o modal ficar mais alto */
+    display: flex;
+}
+
+.modal-content .comparacao-fotos img {
+    height: 100% !important; /* Força a foto a esticar até o limite da div anterior */
+    width: 50% !important;
+    object-fit: cover; /* Garante que a foto preencha o espaço sem deformar */
+}
+
+.modal-title {
+    text-align: center;
+    padding: 15px 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #b89fa3;
+}
+/* Ajuste do Modal específico para Celular */
+@media (max-width: 480px) {
+    .modal-content {
+        width: 95% !important;
+        max-height: 85vh !important;
+        padding: 10px;
+    }
+
+    /* No mobile, vamos manter lado a lado no modal para comparar melhor */
+    .modal-content .comparacao-fotos {
+        flex-direction: row !important; /* Força lado a lado */
+        height: 35vh !important; /* Altura menor para caber tudo na tela do celular */
+    }
+
+    .modal-content .comparacao-fotos img {
+        width: 50% !important;
+        height: 100% !important;
+        object-fit: cover;
+    }
+
+    .modal-title {
+        font-size: 1rem;
+        padding: 10px 0;
+    }
+
+    .modal-close {
+        top: -35px;
+        right: 5px;
+    }
+}
+/* Isso garante que nos CARDS da página as fotos fiquem lado a lado no celular */
+@media (max-width: 700px) {
+    .comparacao-fotos {
+        flex-direction: row !important; /* Força o alinhamento horizontal */
+        height: 180px !important; /* Altura fixa menor para não esticar no mobile */
+    }
+
+    .comparacao-fotos img {
+        width: 50% !important;
+        border-right: 1px solid #fff; /* Divisória vertical fininha */
+        border-bottom: none !important; /* Remove a divisória horizontal anterior */
+    }
+}

@@ -1,0 +1,159 @@
+<!-- <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados - Dra. Kamyla Martins</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="img/logo_aba4.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+</head>
+<body class="resultados-page">
+    <header>
+        <div class="logo-area">
+            <img src="img/logo.jpeg" alt="Logo Dra. Kamyla Martins" class="logo-img">
+        </div>
+        <nav class="main-nav">
+            <button class="menu-toggle" aria-label="Abrir menu">&#9776;</button>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="procedimentos.html">Procedimentos</a></li>
+                <li><a href="resultados.html" class="active">Antes e Depois</a></li> 
+                <li><a href="feedbacks.html">Feedbacks</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+            </ul>
+            <form class="search-bar">
+                <input type="text" placeholder="Buscar resultado...">
+                <button type="submit" aria-label="Buscar">
+                  <span class="search-icon" style="display:flex;align-items:center;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="#b89fa3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                  </span>
+                </button>
+            </form>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <section class="left-content">
+            <h2 class="section-title">Resultados (Antes e Depois)</h2>
+            <div class="cards-container">
+                
+                <div class="procedimento-card resultado-container">
+                    <div class="comparacao-fotos">
+                        <img src="img/antes1.jpg" alt="Antes Preenchimento Labial" class="foto-antes">
+                        <img src="img/depois1.jpg" alt="Depois Preenchimento Labial" class="foto-depois">
+                    </div>
+                    <span class="card-title">Preenchimento Labial</span>
+                </div>
+
+                <div class="procedimento-card resultado-container">
+                    <div class="comparacao-fotos">
+                        <img src="img/botox.jpeg" alt="Antes Botox" class="foto-antes">
+                        <img src="img/perfil.jpeg" alt="Depois Botox" class="foto-depois">
+                    </div>
+                    <span class="card-title">Botox</span>
+                </div>
+
+            </div>  
+        </section>
+    </main>
+
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-content">
+            <span class="modal-close" id="modalClose">&times;</span>
+            <div id="modalBody"></div>
+            <div class="modal-title" id="modalTitle"></div>
+        </div>
+    </div>
+
+    <div class="contact-icons" style="display:flex;justify-content:center;gap:40px;margin-top:40px;margin-bottom:0;">
+        <a href="https://wa.me/5549999939870" target="_blank" class="whatsapp-contact" aria-label="WhatsApp" style="display:flex;flex-direction:column;align-items:center;text-decoration:none;color:#222;font-size:1.1rem;gap:6px;">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp" style="width:38px;height:38px;vertical-align:middle;">
+            <span style="font-size:1rem;">(49) 9 9993-9870</span>
+        </a>
+        <a href="https://instagram.com/biokamylamartins" target="_blank" class="instagram-contact" aria-label="Instagram" style="display:flex;flex-direction:column;align-items:center;text-decoration:none;color:#222;font-size:1.1rem;gap:6px;">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" style="width:38px;height:38px;vertical-align:middle;">
+            <span style="font-size:1rem;">@biokamylamartins</span>
+        </a>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Dra. Kamyla Martins. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+    // 1. Menu hamburguer responsivo
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuBtn = document.querySelector('.menu-toggle');
+        const navList = document.querySelector('.main-nav ul');
+        if(menuBtn && navList) {
+            menuBtn.addEventListener('click', function() { navList.classList.toggle('open'); });
+            navList.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => navList.classList.remove('open'));
+            });
+        }
+    });
+
+    // 2. Busca funcional
+    document.addEventListener('DOMContentLoaded', function() {
+        const searchInput = document.querySelector('.search-bar input');
+        const cards = document.querySelectorAll('.procedimento-card');
+        if(searchInput) {
+            searchInput.addEventListener('input', function() {
+                const value = this.value.trim().toLowerCase();
+                cards.forEach(card => {
+                    const title = card.querySelector('.card-title').textContent.toLowerCase();
+                    card.style.display = title.includes(value) ? '' : 'none';
+                });
+            });
+        }
+    });
+
+    // 3. Lógica para Expandir o Card (Modal)
+    document.addEventListener('DOMContentLoaded', function() {
+        const overlay = document.getElementById('modalOverlay');
+        const modalBody = document.getElementById('modalBody');
+        const modalTitle = document.getElementById('modalTitle');
+        const closeBtn = document.getElementById('modalClose');
+        const cards = document.querySelectorAll('.procedimento-card');
+
+        cards.forEach(card => {
+            card.addEventListener('click', function() {
+                // Clonamos a área das fotos e o título para dentro do modal
+                const fotos = card.querySelector('.comparacao-fotos').innerHTML;
+                const titulo = card.querySelector('.card-title').textContent;
+
+                modalBody.innerHTML = `<div class="comparacao-fotos">${fotos}</div>`;
+                modalTitle.textContent = titulo;
+                overlay.style.display = 'flex';
+            });
+        });
+
+        // Fechar ao clicar no X ou fora da imagem
+        closeBtn.onclick = () => overlay.style.display = 'none';
+        overlay.onclick = (e) => {
+            if (e.target === overlay) overlay.style.display = 'none';
+        };
+    });
+
+    // 4. Transição de página
+    document.addEventListener('DOMContentLoaded', function() {
+        document.body.classList.add('page-loaded');
+        document.querySelectorAll('a[href]').forEach(link => {
+            if (link.hostname === window.location.hostname && !link.hasAttribute('target')) {
+                link.addEventListener('click', function(e) {
+                    if (link.href === window.location.href) return;
+                    e.preventDefault();
+                    document.body.classList.remove('page-loaded');
+                    setTimeout(() => { window.location.href = link.href; }, 500);
+                });
+            }
+        });
+    });
+    </script>
+</body>
+</html> -->
